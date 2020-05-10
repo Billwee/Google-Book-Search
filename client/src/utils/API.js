@@ -19,7 +19,7 @@ export default {
     return axios.post("/api/books", bookData);
   },
   //Searches for a book via Google Books API
-  searchbook: function (bookdata) {
+  searchBook: function (bookdata) {
     return axios.get(`https://www.googleapis.com/books/v1/volumes?q=${bookdata}&key=${key}`)
   }
 };
