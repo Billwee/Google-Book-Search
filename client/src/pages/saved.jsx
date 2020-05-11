@@ -37,8 +37,8 @@ class Books extends React.Component {
     }).catch((err) => {
       console.log(err)
     })
-
   }
+
 
 
   render() {
@@ -47,6 +47,7 @@ class Books extends React.Component {
         {this.state.books.map(item => (
           <SavedItems
             key={item.id}
+            id={item.id}
             title={item.title}
             authors={item.authors}
             description={item.description}

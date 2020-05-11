@@ -65,6 +65,7 @@ class Books extends React.Component {
         {this.state.books.map(item => (
           <Items
             key={item.id}
+            id={item.id}
             title={item.title}
             authors={item.authors}
             description={item.description}

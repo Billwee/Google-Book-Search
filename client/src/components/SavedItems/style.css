@@ -1,0 +1,22 @@
+.bookImg{
+  height: 180px;
+  width: 120px;
+}
+
+.mediaText{  
+  height: 100px;
+  overflow-y: auto; 
+}
+
+.mediaBox{
+  margin: 40px 0;
+  box-shadow: 1px 1px 5px black;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+@media (min-width: 1200px) {
+  .mediaBox{   
+    margin: 40px 70px 40px 70px;
+  }
+}
