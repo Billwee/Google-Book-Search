@@ -4,6 +4,16 @@ import "./style.css";
 
 class SavedItems extends Component {
 
+  state = ({
+    saved: "",
+    disabled: false,
+    saveText: "Save"
+  })
+
+  componentDidMount() {
+    this.getBook(this.props.title)
+  }
+
   makeBook = () => {
     let obj = {}
 
@@ -15,9 +25,12 @@ class SavedItems extends Component {
     obj.link = this.props.link
 
     this.saveBook(obj)
+
+    this.setState({
+      saveText: "Saved",
+      disabled: true
+    })
   }
-
-
 
   saveBook = bookData => {
     API.saveBook(bookData).then((res) => {
@@ -27,18 +40,40 @@ class SavedItems extends Component {
     })
   }
 
+  getBook = id => {
+    API.getBook(id).then((res) => {
+      // console.log(res.data)
+      if (res.data === null) {
+        this.setState({
+          saved: false
+        })
+      } else {
+        return this.setState({
+          saved: true
+        })
+      }
+    }).catch((err) => {
+      console.log(err)
+    })
+  }
 
   render() {
     return (
       <div id={this.props.id} className="media mediaBox">
         <img src={this.props.image} className="align-self-center mr-3 bookImg" alt="..." />
         <div className="media-body align-self-center">
-          <h5 className="mt-0">{this.props.title}</h5>
+          <h4 className="mt-0">{this.props.title}</h4>
           <p className="mediaText">{this.props.description}</p>
           <a href={this.props.link} target="_blank" rel="noopener noreferrer">
             <button type="button" className="btn btn-primary btn-sm ml-2">Visit</button>
           </a>
-          <button onClick={() => this.makeBook()} type="button" className="btn btn-success btn-sm ml-2">Save</button>
+          {(() => {
+            if (this.state.saved) {
+              return <button type="button" className="btn btn-success btn-sm ml-2" disabled>Saved</button>
+            } else {
+              return <button onClick={() => this.makeBook()} type="button" className={`btn btn-success btn-sm ml-2`} disabled={this.state.disabled}>{this.state.saveText}</button>
+            }
+          })()}
         </div>
       </div>
 

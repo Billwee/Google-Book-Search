@@ -62,17 +62,26 @@ class Books extends React.Component {
           handleInputChange={this.handleInputChange}
           handleFormSubmit={this.handleFormSubmit}
         />
-        {this.state.books.map(item => (
-          <Items
-            key={item.id}
-            id={item.id}
-            title={item.title}
-            authors={item.authors}
-            description={item.description}
-            link={item.link}
-            image={item.image}
-          />
-        ))}
+        {!this.state.books.length ? (
+          <div className="alert alert-info mt-4" role="alert">
+            <p className="mt-2 text-center">Please use the form above to search by author or title.</p>
+          </div>
+        ) : (
+            this.state.books.map(item => (
+              <Items
+                key={item.id}
+                id={item.id}
+                title={item.title}
+                authors={item.authors}
+                description={item.description}
+                link={item.link}
+                image={item.image}
+              />
+            ))
+          )
+        }
+
+
       </Wrapper>
     )
   }

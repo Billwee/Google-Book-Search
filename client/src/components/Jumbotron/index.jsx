@@ -6,8 +6,9 @@ import "./style.css";
 function Jumbotron(props) {
   return (
     <div className="jumbotron mt-4">
-      <h3 id="clickText">Clicky Game</h3>
-      <h5 className="">Don't click the same image twice!</h5>
+      <img id="logo" src="./img/header.png" alt="" />
+      {/* <h2 id="clickText">Google Book Search</h2>
+      <h3 className="">Find and save your favorite book infomation!</h3> */}
       {props.children}
     </div>
   )

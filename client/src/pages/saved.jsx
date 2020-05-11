@@ -44,6 +44,9 @@ class Books extends React.Component {
   render() {
     return (
       <Wrapper>
+        <div className="alert alert-primary text-center" role="alert"><h4>Saved Books</h4>
+
+        </div>
         {this.state.books.map(item => (
           <SavedItems
             key={item.id}
@@ -53,6 +56,7 @@ class Books extends React.Component {
             description={item.description}
             link={item.link}
             image={item.image}
+            loadSavedBooks={this.loadSavedBooks}
           />
         ))}
       </Wrapper>
