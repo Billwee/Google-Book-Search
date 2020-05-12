@@ -4,11 +4,10 @@ const app = express();
 const mongoose = require("mongoose");
 const routes = require("./routes");
 const http = require("http");
-const socketIo = require("socket.io");
-require('dotenv').config()
+require("dotenv").config();
 const server = http.createServer(app);
+// const socketIo = require("socket.io");
 // const io = socketIo(server);
-
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
@@ -18,15 +17,18 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
-
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || `mongodb://billwee:${process.env.DB_PASSWORD}@ds227525.mlab.com:27525/heroku_d9tm9f5f`, { useNewUrlParser: true });
+mongoose.connect(
+  process.env.MONGODB_URI ||
+    `mongodb://billwee:${process.env.DB_PASSWORD}@ds227525.mlab.com:27525/heroku_d9tm9f5f`,
+  { useNewUrlParser: true }
+);
 
 // Define API routes here
 app.use(routes);
 
+//ATTEMPT AT BONUS SOCKET.IO INTEGRATION
 // let interval;
-
 // io.on("connection", (socket) => {
 //   console.log("New client connected");
 //   if (interval) {
@@ -38,13 +40,11 @@ app.use(routes);
 //     clearInterval(interval);
 //   });
 // });
-
 // const getApiAndEmit = socket => {
 //   const response = new Date();
 //   // Emitting a new message. Will be consumed by the client
 //   socket.emit("FromAPI", response);
 // };
-
 
 server.listen(PORT, () => {
   console.log(`🌎 ==> API server now on port ${PORT}!`);

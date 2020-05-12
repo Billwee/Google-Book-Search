@@ -5,49 +5,50 @@ import Wrapper from "../components/Wrapper";
 
 class Books extends React.Component {
   state = {
-    books: []
+    books: [],
   };
 
+  // On page render it runs the function to load books from the MongoDB
   componentDidMount() {
     this.loadSavedBooks();
   }
 
+  // This function loads the saved books from the DB and contructs
+  // them into an array of objects to map through for rendering.
   loadSavedBooks = () => {
-
     let foundBooks = [];
 
-    API.getBooks().then((res) => {
+    API.getBooks()
+      .then((res) => {
+        res.data.forEach((element) => {
+          let obj = {};
 
-      res.data.forEach((element) => {
-        let obj = {}
+          obj.id = element._id;
+          obj.title = element.title;
+          obj.authors = element.authors;
+          obj.description = element.description;
+          obj.link = element.link;
+          obj.image = element.image;
 
-        obj.id = element._id
-        obj.title = element.title
-        obj.authors = element.authors
-        obj.description = element.description
-        obj.link = element.link
-        obj.image = element.image
-
-        foundBooks.push(obj)
+          foundBooks.push(obj);
+        });
+        console.log(foundBooks);
+        this.setState({
+          books: foundBooks,
+        });
       })
-      console.log(foundBooks)
-      this.setState({
-        books: foundBooks
-      })
-    }).catch((err) => {
-      console.log(err)
-    })
-  }
-
-
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   render() {
     return (
       <Wrapper>
-        <div className="alert alert-primary text-center" role="alert"><h4>Saved Books</h4>
-
+        <div className="alert alert-primary text-center" role="alert">
+          <h4>Saved Books</h4>
         </div>
-        {this.state.books.map(item => (
+        {this.state.books.map((item) => (
           <SavedItems
             key={item.id}
             id={item.id}
@@ -60,7 +61,7 @@ class Books extends React.Component {
           />
         ))}
       </Wrapper>
-    )
+    );
   }
 }
 
