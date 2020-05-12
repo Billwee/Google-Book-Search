@@ -7,8 +7,6 @@ function Jumbotron(props) {
   return (
     <div className="jumbotron mt-4">
       <img id="logo" src="./img/header.png" alt="" />
-      {/* <h2 id="clickText">Google Book Search</h2>
-      <h3 className="">Find and save your favorite book infomation!</h3> */}
       {props.children}
     </div>
   )

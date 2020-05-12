@@ -1,5 +1,5 @@
+import React, { Component } from "react";
 import axios from "axios";
-let key = "AIzaSyBb5DH8wyu4YZRwr5JLWdoEcIhUGbCrG6Q"
 
 export default {
   // Gets all books
@@ -20,6 +20,6 @@ export default {
   },
   //Searches for a book via Google Books API
   searchBook: function (bookdata) {
-    return axios.get(`https://www.googleapis.com/books/v1/volumes?q=${bookdata}&key=${key}`)
+    return axios.get(`https://www.googleapis.com/books/v1/volumes?q=${bookdata}&key=${process.env.REACT_APP_API_KEY}`)
   }
 };
