@@ -2,7 +2,7 @@
 
 ## Overview
 
-Google Book Search (GBS) is a React based application that uses one of Google's many APIs to return information on books from a form submission containing a book's author or title. GBS also has the capability of saving your favorite search results to a Mongo Database for later viewing.
+Google Book Search (GBS) is a MERN Stack based application that uses one of Google's many APIs to return information on books from a form submission containing a book's author or title. GBS also has the capability of saving your favorite search results to a Mongo Database for later viewing.
 
 ## Deployment
 
