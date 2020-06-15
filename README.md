@@ -8,6 +8,16 @@ Google Book Search (GBS) is a React based application that uses one of Google's 
 
 You can start searching for your favorite books by [Clicking Here](https://kamberos-gbook-search.herokuapp.com/).
 
+## Technology Used
+- JavaScript
+- MongoDb
+- Express
+- React.js
+- Node.js
+- HTML
+- CSS
+- Bootstrap
+
 ## User Experience
 
  - After GBS loads, the user is presented with a navigation bar, banner, and input form. 
