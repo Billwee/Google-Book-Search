@@ -8,16 +8,6 @@ Google Book Search (GBS) is a MERN Stack based application that uses one of Goog
 
 You can start searching for your favorite books by [Clicking Here](https://kamberos-gbook-search.herokuapp.com/).
 
-## Technology Used
-- JavaScript
-- MongoDb
-- Express
-- React.js
-- Node.js
-- HTML
-- CSS
-- Bootstrap
-
 ## User Experience
 
  - After GBS loads, the user is presented with a navigation bar, banner, and input form. 
@@ -29,4 +19,30 @@ You can start searching for your favorite books by [Clicking Here](https://kambe
      - If Google's API returns books without descriptions or images, the empty spots will be filled with placeholders explaining they are not available.
  - Once a book is saved to the database it can not be saved again unless it is removed. Even after reloading the page.
  - Accessing the saved books can be done via the navigation bar at the top of the page.
- - Users have the option to delete books from the database as well in the media boxes on the Saved page.
+ - Users have the option to delete books from the database as well in the media boxes on the Saved page.'
+
+## Application Walkthrough
+
+### When the application loads, the user is presented with a search form. Users can search by title or author.
+![Search Page](./client/public/img/walk1.PNG)
+
+### Results are displayed in a card format with the descriptions in an overflow box to keep the cards more symmetrical.
+![Search Results](./client/public/img/walk2.PNG)
+
+### Clicking 'Visit' will bring the user to the books page on Google Books. Clicking 'Save' will store the book in the MongoDB.
+![Book Saved](./client/public/img/walk3.PNG)
+
+### Accessing the saved books from the top of the application brings users to the stored books section. Books can be deleted from this section as well.
+![Saved Books](./client/public/img/walk4.PNG)
+
+
+
+## Technology Used
+- JavaScript
+- MongoDb
+- Express
+- React.js
+- Node.js
+- HTML
+- CSS
+- Bootstrap
